@@ -9,22 +9,26 @@ class Backgrounds extends StatelessWidget{
     print('[Background Widet] Constructor');
   }
 
+  Widget _buildBackgroundItem(BuildContext context, int index){
+    return Card(
+      child: Column(
+        children: <Widget>[
+          Image.asset('assets/paisaje.jpg'),
+          Text(backgrounds[index])
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     print('[Background Widet] Build');
 
-    return Column(
-      children: backgrounds
-          .map((element) => Card(
-        child: Column(
-          children: <Widget>[
-            //Image.asset('assets/paisaje.jpg'),
-            Text(element)
-          ],
-        ),
-      ))
-          .toList(),
-    );
+    return backgrounds.length > 0 ?  ListView.builder(
+      itemBuilder: _buildBackgroundItem,
+      itemCount: backgrounds.length,
+
+    ) : Center(child: Text('No background found, Please add some'),);
   }
 
 }

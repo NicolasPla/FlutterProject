@@ -6,7 +6,7 @@ class BackgroundManager extends StatefulWidget{
 
   String startingBackground;
 
-  BackgroundManager({this.startingBackground = 'Default background'});
+  BackgroundManager({this.startingBackground});
 
   @override
   State<StatefulWidget> createState() {
@@ -24,7 +24,11 @@ class _BackgroundManagerState extends State<BackgroundManager>{
   void initState() {
     print('[BackgroundManager State] initState()');
 
-    _backgrounds.add(widget.startingBackground);
+    if(widget.startingBackground != null)
+      {
+        _backgrounds.add(widget.startingBackground);
+      }
+
     super.initState();
   }
 
@@ -47,7 +51,7 @@ class _BackgroundManagerState extends State<BackgroundManager>{
       margin: EdgeInsets.all(10.0),
       child: BackgroundControl(_addBackground),
     ),
-      Backgrounds(_backgrounds)
+      Expanded(child: Backgrounds(_backgrounds))
     ],);
   }
 }
