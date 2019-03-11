@@ -7,11 +7,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(context) {
     return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.blueGrey,
+
+      ),
       home: Scaffold(
           appBar: AppBar(
             title: Text('EasyList'),
           ),
-          body: BackgroundManager()),
+          body: BackgroundManager(startingBackground: 'First background')),
     );
   }
 }

@@ -2,21 +2,24 @@ import 'package:flutter/material.dart';
 
 class Backgrounds extends StatelessWidget{
 
-  final List<String> products;
+  final List<String> backgrounds;
 
   //Constructor
-  Backgrounds(this.products);
+  Backgrounds(this.backgrounds){
+    print('[Background Widet] Constructor');
+  }
 
   @override
   Widget build(BuildContext context) {
+    print('[Background Widet] Build');
 
     return Column(
-      children: products
+      children: backgrounds
           .map((element) => Card(
         child: Column(
           children: <Widget>[
-            Image.asset('assets/paisaje.jpg'),
-            Text('Test')
+            //Image.asset('assets/paisaje.jpg'),
+            Text(element)
           ],
         ),
       ))
