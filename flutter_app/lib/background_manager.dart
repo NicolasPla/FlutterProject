@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './backgrounds.dart';
+import './background_control.dart';
 
 class BackgroundManager extends StatefulWidget{
 
@@ -17,7 +18,7 @@ class BackgroundManager extends StatefulWidget{
 
 class _BackgroundManagerState extends State<BackgroundManager>{
 
-  List<String> _backgrounds = [];
+  final List<String> _backgrounds = [];
 
   @override
   void initState() {
@@ -33,19 +34,18 @@ class _BackgroundManagerState extends State<BackgroundManager>{
     super.didUpdateWidget(oldWidget);
   }
 
+  void _addBackground(String background){
+    setState(() {
+      _backgrounds.add(background);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     print('[BackgroundManager State] build()');
     return Column(children : [Container(
       margin: EdgeInsets.all(10.0),
-      child: RaisedButton(
-        child: Text('Add Image'),
-        onPressed: () {
-          setState(() {
-            _backgrounds.add('Title B');
-          });
-        },
-      ),
+      child: BackgroundControl(_addBackground),
     ),
       Backgrounds(_backgrounds)
     ],);
