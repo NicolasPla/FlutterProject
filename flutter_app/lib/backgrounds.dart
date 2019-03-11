@@ -13,12 +13,12 @@ class Backgrounds extends StatelessWidget{
   Widget build(BuildContext context) {
     print('[Background Widet] Build');
 
-    return Column(
+    return ListView(
       children: backgrounds
           .map((element) => Card(
         child: Column(
           children: <Widget>[
-            //Image.asset('assets/paisaje.jpg'),
+            Image.asset('assets/paisaje.jpg'),
             Text(element)
           ],
         ),

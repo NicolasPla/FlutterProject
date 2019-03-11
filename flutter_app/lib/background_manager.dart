@@ -47,7 +47,7 @@ class _BackgroundManagerState extends State<BackgroundManager>{
       margin: EdgeInsets.all(10.0),
       child: BackgroundControl(_addBackground),
     ),
-      Backgrounds(_backgrounds)
+      Expanded(child: Backgrounds(_backgrounds))
     ],);
   }
 }
