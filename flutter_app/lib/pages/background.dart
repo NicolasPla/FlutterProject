@@ -14,7 +14,7 @@ class BackgroundPage extends StatelessWidget {
       {
         print('Back button pressed');
         Navigator.pop(context, false);
-        return Future.value(true);
+        return Future.value(false);
         },
       child: Scaffold(
           appBar: AppBar(
