@@ -11,7 +11,7 @@ class BackgroundControl extends StatelessWidget{
     return RaisedButton(
       child: Text('Add Image'),
       onPressed: () {
-        addBackground('Title ABC');
+        addBackground({'title': 'TitleA', 'image': 'assets/paisaje.jpg'});
       },
     );
   }

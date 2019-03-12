@@ -4,7 +4,7 @@ import './background_control.dart';
 
 class BackgroundManager extends StatefulWidget{
 
-  String startingBackground;
+  final Map<String, String> startingBackground;
 
   BackgroundManager({this.startingBackground});
 
@@ -18,7 +18,7 @@ class BackgroundManager extends StatefulWidget{
 
 class _BackgroundManagerState extends State<BackgroundManager>{
 
-  final List<String> _backgrounds = [];
+  final List<Map<String, String>> _backgrounds = [];
 
   @override
   void initState() {
@@ -38,10 +38,18 @@ class _BackgroundManagerState extends State<BackgroundManager>{
     super.didUpdateWidget(oldWidget);
   }
 
-  void _addBackground(String background){
+  void _addBackground(Map<String, String> background){
     setState(() {
       _backgrounds.add(background);
     });
+  }
+
+  void _deleteBackground(int index)
+  {
+    setState(() {
+      _backgrounds.removeAt(index);
+    });
+
   }
 
   @override
@@ -51,7 +59,7 @@ class _BackgroundManagerState extends State<BackgroundManager>{
       margin: EdgeInsets.all(10.0),
       child: BackgroundControl(_addBackground),
     ),
-      Expanded(child: Backgrounds(_backgrounds))
+      Expanded(child: Backgrounds(_backgrounds, deleteBackground: _deleteBackground))
     ],);
   }
 }
